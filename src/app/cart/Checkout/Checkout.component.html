@@ -337,7 +337,7 @@
                 Please enter Expiration Month
               </div>
               <div class="invalid-feedback" *ngIf="
-                  checkOutForm.get('expmonth').hasError('min') || checkOutForm.get('expmonth').hasError('max') &&
+              checkOutForm.get('expmonth').hasError('pattern') || checkOutForm.get('expmonth').hasError('min') || checkOutForm.get('expmonth').hasError('max') &&
                   checkOutForm.get('expmonth').touched
                 ">
                 Month should be in between 1 - 12

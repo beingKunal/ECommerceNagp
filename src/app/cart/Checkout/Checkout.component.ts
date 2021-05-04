@@ -37,7 +37,7 @@ export class CheckoutComponent implements OnInit {
       zip: ['', [Validators.required, Validators.pattern('^[0-9]*'), Validators.maxLength(6), Validators.minLength(6)]],
       cardname: ['', Validators.required],
       cardnumber: ['', Validators.required],
-      expmonth: ['', [Validators.required, Validators.min(1), Validators.max(12)]],
+      expmonth: ['', [Validators.required,Validators.pattern('^[0-9]*'), Validators.min(1), Validators.max(12)]],
       expyear: ['', [Validators.required, Validators.pattern('^[0-9]{4}$'), Validators.min(new Date().getFullYear())]],
       sameaddress: ['', Validators.required],
       cvv: ['', Validators.required]

@@ -1,32 +1,27 @@
 <nav class="mb-4 navbar navbar-expand-md navbar-dark bg-primary">
   <div class="container">
-
-      <a class="navbar-brand" href="#">
-        <img src="../../../assets/Images/logo.jpg" >Shop Cart</a>
-
-
+    <a class="navbar-brand" href="#">
+      <img src="../../../assets/Images/logo.jpg" />Shop Cart</a>
     <ul class="navbar-nav mr-auto">
       <li class="nav-item" [routerLink]="['']" routerLinkActive="active">
         <a class="nav-link">Products</a>
       </li>
     </ul>
     <div *ngIf="loggedIn()" class="dropdown" dropdown>
-
-      <a class=" dropdown-toggle text-dark font-weight-bold " dropdownToggle>
+      <a class="dropdown-toggle text-dark font-weight-bold" dropdownToggle>
         Welcome!
       </a>
       <div class="dropdown-menu mt-3" *dropdownMenu>
-        <a class="dropdown-item" [routerLink]="['/Cart']"><i class="fa fa-shopping-cart"></i>
-          My Cart</a>
+        <a class="dropdown-item" [routerLink]="['/Cart']"><i class="fa fa-shopping-cart"></i> My Cart</a>
         <div class="dropdown-divider"></div>
         <a class="dropdown-item" (click)="Logout($event)"><i class="fa fa-sign-out"></i>Logout</a>
       </div>
     </div>
     <form *ngIf="!loggedIn()" class="form-inline my-2 my-lg-0" (ngSubmit)="login()" [formGroup]="loginForm">
       <input class="form-control mr-sm-2" type="text" required name="Username" placeholder="Username"
-        formControlName="Username">
+        formControlName="Username" />
       <input class="form-control mr-sm-2" type="password" required name="Password" placeholder="Password"
-        formControlName="Password">
+        formControlName="Password" />
       <button class="btn btn-success my-2 my-sm-0 mr-1" [disabled]="!loginForm.valid" type="submit">
         Login
       </button>
@@ -34,7 +29,5 @@
         SignUp
       </button>
     </form>
-
   </div>
-
 </nav>
