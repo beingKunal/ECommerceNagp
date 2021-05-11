@@ -26,9 +26,10 @@ export class ProductService{
   }
 
   searchProducts(keyword:string){
+    keyword = keyword.toLowerCase()
     return this.http.get<Product[]>(this.baseUrl+'/products')
-    .pipe(map(data => data.filter(product => product.description.includes(keyword)
-                                  || product.title.includes(keyword))));
+    .pipe(map(data => data.filter(product => product.description.toLowerCase().includes(keyword)
+                                  || product.title.toLowerCase().includes(keyword))));
   }
 
   getCategories(){
