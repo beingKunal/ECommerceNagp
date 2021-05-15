@@ -1,9 +1,9 @@
 <div class="row">
   <div class="col-75">
     <div class="container">
-      <form  [formGroup]="checkOutForm" (ngSubmit)="placeOrder()">
+      <form [formGroup]="checkOutForm" (ngSubmit)="placeOrder()">
         <div class="row">
-          <div class="col-50" >
+          <div class="col-50">
             <h3>{{'BillAddress' |translate}}</h3>
             <div class="form-group">
               <label for="fname"><i class="fa fa-user"></i> Full Name</label>
@@ -31,6 +31,12 @@
                   checkOutForm.get('email').touched
                 ">
                 Email field is required
+              </div>
+              <div class="invalid-feedback" *ngIf="
+                  checkOutForm.get('email').hasError('email') &&
+                  checkOutForm.get('email').touched
+                ">
+                Invalid EmailId
               </div>
             </div>
             <div class="form-group">
@@ -133,12 +139,18 @@
                     checkOutForm.get('cardnumber').errors &&
                     checkOutForm.get('cardnumber').touched
                 }" type="text" id="ccnum" name="cardnumber" formControlName="cardnumber"
-                placeholder="1111-2222-3333-4444" />
+                placeholder="1111222233334444" />
               <div class="invalid-feedback" *ngIf="
                   checkOutForm.get('cardnumber').hasError('required') &&
                   checkOutForm.get('cardnumber').touched
                 ">
                 Please enter cardnumber
+              </div>
+              <div class="invalid-feedback" *ngIf="
+                  checkOutForm.get('cardnumber').hasError('pattern')||checkOutForm.get('cardnumber').hasError('minlength') || checkOutForm.get('cardnumber').hasError('maxlength') &&
+                  checkOutForm.get('cardnumber').touched
+                ">
+                Invalid cardnumber
               </div>
             </div>
             <div class="form-group">
@@ -207,7 +219,7 @@
           <input type="checkbox" checked="checked" name="sameadr" formControlName="sameaddress" />
           Shipping address same as billing
         </label>
-        <button type="submit" [disabled]="!checkOutForm.valid" class="btn" >{{'PlaceOrder'|translate}}</button>
+        <button type="submit" [disabled]="!checkOutForm.valid" class="btn">{{'PlaceOrder'|translate}}</button>
       </form>
     </div>
   </div>
