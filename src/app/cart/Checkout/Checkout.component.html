@@ -133,12 +133,12 @@
               </div>
             </div>
             <div class="form-group">
-              <label for="ccnum">Credit card number</label>
+              <label for="cnum">Card number</label>
               <input [ngClass]="{
                   'is-invalid':
                     checkOutForm.get('cardnumber').errors &&
                     checkOutForm.get('cardnumber').touched
-                }" type="text" id="ccnum" name="cardnumber" formControlName="cardnumber"
+                }" type="text" id="cnum" name="cardnumber" formControlName="cardnumber"
                 placeholder="1111222233334444" />
               <div class="invalid-feedback" *ngIf="
                   checkOutForm.get('cardnumber').hasError('required') &&
@@ -210,6 +210,12 @@
                     ">
                     Please enter cvv code
                   </div>
+                  <div class="invalid-feedback" *ngIf="
+                  checkOutForm.get('cvv').hasError('pattern')||checkOutForm.get('cvv').hasError('minlength') || checkOutForm.get('cvv').hasError('maxlength') &&
+                  checkOutForm.get('cvv').touched
+                ">
+                Invalid cvv
+              </div>
                 </div>
               </div>
             </div>

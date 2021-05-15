@@ -40,7 +40,7 @@ export class CheckoutComponent implements OnInit {
       expmonth: ['', [Validators.required,Validators.pattern('^[0-9]*'), Validators.min(1), Validators.max(12)]],
       expyear: ['', [Validators.required, Validators.pattern('^[0-9]{4}$'), Validators.min(new Date().getFullYear())]],
       sameaddress: ['', Validators.required],
-      cvv: ['', Validators.required]
+      cvv: ['', [Validators.required,Validators.pattern('^[0-9]*'), Validators.minLength(3), Validators.maxLength(3)]]
     });
   }
   placeOrder() {
