@@ -51,7 +51,7 @@ export class CartItemsComponent implements OnInit {
     this.getTotalPrice();
   }
   decreaseQty(product: Product) {
-    product.quantity == 1
+    product.quantity <= 1
       ? this.toastr.warning('Please remove item from Cart')
       : (product.quantity -= 1);
     this.getTotalPrice();
