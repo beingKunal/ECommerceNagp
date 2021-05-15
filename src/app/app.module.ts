@@ -25,6 +25,7 @@ import {TranslateHttpLoader} from '@ngx-translate/http-loader'
 export function HttpLoaderFactory(httpClient){
   return new TranslateHttpLoader(httpClient)
 }
+
 @NgModule({
   declarations: [
     AppComponent,
