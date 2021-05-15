@@ -1,0 +1,21 @@
+{
+  "Welcome":"स्वागत हे" ,
+  "Language":"भाषा बदलें",
+  "My Cart": "मेरा कार्ट",
+  "English":"अंग्रेज़ी",
+  "Hindi":"हिंदी",
+  "LogOut":"लॉग आउट",
+  "Login":"लॉग इन",
+  "SignUp":"साइन अप",
+  "Search":"खोजें",
+  "CheckOut":"चेक आउट",
+  "GoToShop" :"शॉप पर जाओ",
+  "Continue Shopping":"खरीदारी जारी रखें",
+  "Products":"उत्पाद",
+  "Payment":"भुगतान विवरण",
+  "BillAddress":"बिलिंग विवरण",
+  "EmptyCart":"आपका कार्ट खाली है",
+  "PlaceOrder":"प्लेस आर्डर",
+  "SearchPH":"उत्पाद, आइटम और बहुत कुछ खोजें ..."
+
+}

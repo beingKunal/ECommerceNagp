@@ -4,17 +4,17 @@
       <img src="../../../assets/Images/logo.jpg" />Shop Cart</a>
     <ul class="navbar-nav mr-auto">
       <li class="nav-item" [routerLink]="['']" routerLinkActive="active">
-        <a class="nav-link">Products</a>
+        <a class="nav-link">{{'Products'|translate}}</a>
       </li>
     </ul>
     <div *ngIf="loggedIn()" class="dropdown" dropdown>
-      <a class="dropdown-toggle text-dark font-weight-bold mr-3" dropdownToggle>
-        Welcome!
+      <a class="dropdown-toggle text-white  mr-3" dropdownToggle>
+        {{'Welcome' | translate}}
       </a>
       <div class="dropdown-menu mt-1" *dropdownMenu>
-        <a class="dropdown-item" [routerLink]="['/Cart']"><i class="fa fa-shopping-cart"></i> My Cart</a>
+        <a class="dropdown-item" [routerLink]="['/Cart']"><i class="fa fa-shopping-cart"></i>{{'My Cart'|translate}}</a>
         <div class="dropdown-divider"></div>
-        <a class="dropdown-item" (click)="Logout($event)"><i class="fa fa-sign-out"></i>Logout</a>
+        <a class="dropdown-item" (click)="Logout($event)"><i class="fa fa-sign-out"></i>{{'LogOut' | translate}}</a>
       </div>
     </div>
     <form *ngIf="!loggedIn()" class="form-inline my-2 my-lg-0" (ngSubmit)="login()" [formGroup]="loginForm">
@@ -23,20 +23,21 @@
       <input class="form-control mr-sm-2" type="password" required name="Password" placeholder="Password"
         formControlName="Password" />
       <button class="btn btn-success my-2 my-sm-0 mr-1" [disabled]="!loginForm.valid" type="submit">
-        Login
+        {{'Login'|translate}}
       </button>
       <button class="btn btn-dark my-2 my-sm-0" (click)="Register()" type="button">
-        SignUp
+        {{'SignUp'|translate}}
       </button>
     </form>
     <div class="dropdown" dropdown>
-      <a class="dropdown-toggle text-dark font-weight-bold" dropdownToggle>
-        <i class="fa fa-globe"></i>
+      <a class="dropdown-toggle text-white font-weight-bold" dropdownToggle>
+        <i class="fa fa-globe"></i> {{'Language' | translate}}
       </a>
       <div class="dropdown-menu mt-1" *dropdownMenu>
-        <a class="dropdown-item">Hindi</a>
+
+        <a class="dropdown-item" (click)="changeLanguage('hi')">{{'Hindi' |translate}} </a>
         <div class="dropdown-divider"></div>
-        <a class="dropdown-item" >English</a>
+        <a class="dropdown-item" (click)="changeLanguage('en')" >{{'English' | translate}}</a>
       </div>
     </div>
   </div>

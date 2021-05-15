@@ -1,114 +1,12 @@
-<!-- style="overflow: auto; height: 450px; -->
-<!-- <div class="row">
-
-  <div class="col-sm-6" >
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">My Cart ({{ cartItems.products.length }})</h5>
-        <div class="card-body" *ngFor="let product of cartItems.products">
-          <table class="table table-hover">
-            <tbody>
-              <tr>
-                <td>
-                  <img src="{{ product.image }}" height="70px" width="50px" />
-                </td>
-                <div>
-                  <td style="text-align: justify;">{{ product.description }}</td>
-                </div>
-                <td>{{ cartItems.date | date }}</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-    </div>
-    <div class="card-footer" style="position:initial">
-       <a href="#" class="d-flex btn btn-warning ">Place Order</a></div>
-  </div>
-
-  <div class="col-sm-6">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">Price Details</h5>
-
-      </div>
-    </div>
-  </div>
-</div> -->
-
-<!-- <div class="row">
-  <h5 class="card-title"></h5>
-  <div style="width:60%;">
-    <div style="height: 70%;  overflow-y: scroll;" >
-      <table class="table table-hover" *ngFor="let product of cartItems.products">
-        <tbody>
-          <tr>
-            <td>
-              <img src="{{ product.image }}" height="70px" width="50px" />
-            </td>
-            <div>
-              <td style="text-align: justify;">{{ product.description }}</td>
-            </div>
-            <td>{{ cartItems.date | date }}</td>
-          </tr>
-          <tr><td>
-            -&nbsp;+
-          </td></tr>
-        </tbody>
-      </table>
-
-    </div>   <div class="card-footer" style="position:initial">
-      <a href="#" class="d-flex btn btn-warning ">Place Order</a></div>
-  </div>
-
-<div class="col-sm-4">
-  <div class="card">
-    <div class="card-body">
-      <h5 class="card-title">Price Details</h5>
-
-    </div>
-  </div>
-</div>
-</div> -->
-
-<!-- <div class="row">
-  <div *ngIf="cartItems.products.length>0" class="col-8">
-    <h5 class="card-title">My Cart ({{ cartItems.products.length }})</h5>
-    <table class="table" *ngFor="let product of cartItems.products">
-      <tbody>
-        <tr>
-          <td>
-            <img src="{{ product.image }}" height="70px" width="50px" />
-          </td>
-          <div>
-            <td style="text-align: justify">{{ product.title }}</td>
-          </div>
-          <td>{{ cartItems.date | date }}</td>
-        </tr>
-        <button class="btn btn-danger" type="button" (click)="Remove(product)">Remove</button>
-      </tbody>
-    </table>
-  </div>
-  <div *ngIf="cartItems.products.length>0" class="col-4"><p>Total Price({{ cartItems.products.length }}) :{{totalPrice| number}}</p>
-  <p>Discount :{{discount}}</p>
-<p>Delivery Charges :{{deliveryCharges}}</p>
-<p>TotalAmount :{{totalAmount| number}}</p></div>
-</div>
-<div *ngIf="cartItems.products.length<=0">
-  <p>It seems your cart is Empty!! Have a look on our Products.....</p>
-  <button class="btn btn-success" [routerLink]="['']">Shop Now </button>
-</div> -->
-
 <div class="container">
   <div *ngIf="cartItems.products.length === 0" class="text-center my-5">
-    <h4>Your Cart Is Empty</h4>
-    <button class="btn btn-primary btn-lg mt-3" routerLink="/">GO TO SHOP</button>
+    <h4>{{'EmptyCart' |translate}}</h4>
+    <button class="btn btn-primary btn-lg mt-3" routerLink="/">{{'GoToShop'|translate}}</button>
   </div>
 
   <div *ngIf="cartItems.products.length !== 0">
     <div class="d-flex justify-content-between align-items-center">
-      <h3 class="font-weight-bold">My Cart ({{ cartItems.products.length }})</h3>
+      <h3 class="font-weight-bold">{{'My Cart'| translate}} ({{ cartItems.products.length }})</h3>
     </div>
     <div class="row">
       <div style="height: 300px; overflow-y: scroll;" class="col my-4">
@@ -163,8 +61,8 @@
 
       <div class="col-md-12 d-flex ">
         <div class="d-flex w-100 justify-content-between flex-sm-column flex-md-row">
-          <a [routerLink]="['checkout']" class="btn btn-danger btn-lg order-1">Checkout</a>
-          <a routerLink="/" class="btn btn-success btn-sm-lg order-0">Continue Shopping</a>
+          <a [routerLink]="['checkout']" class="btn btn-danger btn-lg order-1">{{'CheckOut' | translate}}</a>
+          <a routerLink="/" class="btn btn-success btn-sm-lg order-0">{{'Continue Shopping' | translate}}</a>
         </div>
       </div>
     </div>

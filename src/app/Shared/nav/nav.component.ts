@@ -1,3 +1,4 @@
+import { TranslateService } from '@ngx-translate/core';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 import { AuthService } from '../Auth.service';
@@ -16,7 +17,8 @@ export class NavComponent implements OnInit {
     private fb: FormBuilder,
     private authService: AuthService,
     private router: Router,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private translate : TranslateService
   ) {}
 
   ngOnInit(): void {
@@ -30,6 +32,7 @@ export class NavComponent implements OnInit {
     });
   }
   login() {
+    this.loginForm.get('Password').reset()
     this.authService.login(this.loginForm.value).subscribe(
       (response) => {
         this.toastr.success('login Successful');
@@ -54,5 +57,8 @@ export class NavComponent implements OnInit {
 
   Register() {
     this.router.navigate(['/register']);
+  }
+  changeLanguage(lang : string){
+    this.translate.use(lang)
   }
 }

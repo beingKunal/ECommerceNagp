@@ -1,4 +1,4 @@
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -19,8 +19,12 @@ import { RegisterComponent } from './Shared/register/register.component';
 import { CategoriesComponent } from './Products/categories/categories.component';
 import { PageNotFoundComponent } from './Shared/page-not-found/page-not-found.component';
 import { FooterComponent } from './Shared/footer/footer.component';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader'
 
-
+export function HttpLoaderFactory(httpClient){
+  return new TranslateHttpLoader(httpClient)
+}
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,8 +49,11 @@ import { FooterComponent } from './Shared/footer/footer.component';
     ToastrModule.forRoot({
       positionClass:'toast-bottom-right'
     }),
-
+    TranslateModule.forRoot({
+      loader:{provide:TranslateLoader,useFactory:HttpLoaderFactory ,deps:[HttpClient]}
+    })
   ],
+
   // exports:[RegisterComponent],
   providers: [ProductDetailResolver,ProductGridResolver],
   bootstrap: [AppComponent]
