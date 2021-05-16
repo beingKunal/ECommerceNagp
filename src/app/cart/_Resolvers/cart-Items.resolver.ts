@@ -15,7 +15,6 @@ export class CartItemsResolver implements Resolve<Cart> {
   resolve(route: ActivatedRouteSnapshot): Observable<Cart>{
     return this.cartService.getCart().pipe(
       catchError(error => {
-        //this.router.navigate(['/members']);
         return of(null);
       })
     )

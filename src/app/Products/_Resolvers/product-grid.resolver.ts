@@ -15,7 +15,6 @@ export class ProductGridResolver implements Resolve<Product[]> {
   resolve(route: ActivatedRouteSnapshot): Observable<Product[]>{
     return this.productService.getProducts().pipe(
       catchError(error => {
-        //this.router.navigate(['/members']);
         return of(null);
       })
     )
