@@ -8,7 +8,8 @@ import { NavComponent } from './nav.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AuthService } from '../Services/Auth.service';
 import { DebugElement } from '@angular/core';
-import { By } from 'protractor';
+import { By } from '@angular/platform-browser';
+
 
 describe('NavComponent', () => {
   let component: NavComponent;
@@ -48,13 +49,14 @@ describe('NavComponent', () => {
 
   it('LoginForm should not be present when LoggedIn', () => {
     spy = spyOn(component , 'loggedIn').and.returnValue(true);
-    el = fixture.debugElement.nativeElement.querySelector(By.css('loginForm'))
+    fixture.detectChanges()
+    el = fixture.debugElement.query(By.css('form'));
     expect(el).toBeFalsy();
-
   });
+
   it('LoginForm should be present when not LoggedIn', () => {
     spy = spyOn(component , 'loggedIn').and.returnValue(false);
-    el = fixture.debugElement.nativeElement.querySelector(By.css('loginForm'))
+    el = fixture.debugElement.query(By.css('form'));
     expect(el).toBeTruthy();
   });
 
