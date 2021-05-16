@@ -1,7 +1,7 @@
 import { TranslateService } from '@ngx-translate/core';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
-import { AuthService } from '../Auth.service';
+import { AuthService } from '../Services/Auth.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ThrowStmt } from '@angular/compiler';
@@ -44,7 +44,7 @@ export class NavComponent implements OnInit {
     );
   }
 
-  loggedIn() {
+  loggedIn():boolean {
     return this.authService.loggedIn();
   }
 

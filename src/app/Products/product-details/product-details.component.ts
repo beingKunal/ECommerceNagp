@@ -1,4 +1,4 @@
-import { AuthService } from './../../Shared/Auth.service';
+import { AuthService } from '../../Shared/Services/Auth.service';
 import { Cart } from './../../cart/_models/Cart';
 import { CartServiceService } from './../../cart/cart-service.service';
 import { ToastrService } from 'ngx-toastr';

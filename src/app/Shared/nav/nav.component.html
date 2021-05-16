@@ -17,7 +17,7 @@
         <a class="dropdown-item" (click)="Logout($event)"><i class="fa fa-sign-out"></i>{{'LogOut' | translate}}</a>
       </div>
     </div>
-    <form *ngIf="!loggedIn()" class="form-inline my-2 my-lg-0" (ngSubmit)="login()" [formGroup]="loginForm">
+    <form *ngIf="!loggedIn()" class="form-inline my-2 my-lg-0" (ngSubmit)="login()" id = "loginForm" [formGroup]="loginForm">
       <input class="form-control mr-sm-2" type="text" required name="Username" placeholder="Username"
         formControlName="Username" />
       <input class="form-control mr-sm-2" type="password" required name="Password" placeholder="Password"

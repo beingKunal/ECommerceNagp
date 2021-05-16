@@ -1,5 +1,3 @@
-import { User } from '../Products/_Models/User';
-import { environment } from '../../environments/environment';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Product } from 'src/app/Products/_Models/Product';
@@ -8,7 +6,9 @@ import { map } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class AuthService{
+
   constructor(private http: HttpClient){}
+
   baseUrl = '../../assets/Templates/UserData.json';
 
   login(model: any) {
@@ -25,6 +25,6 @@ export class AuthService{
 
   loggedIn() {
     const token = localStorage.getItem('token');
-    return token
+    return !!token
   }
 }
